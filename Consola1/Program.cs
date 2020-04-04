@@ -51,14 +51,14 @@ namespace Consola1
             Funciones = true;
         }
 
-        public static void EliminarPersona()
+        public static void Eliminar()
         {
             Console.Clear();
             int rut;
 
             do
             {
-                Console.WriteLine("Ingrese rut a eliminar");
+                Console.WriteLine("Ingerse rut de persona a borrar");
             } while (!int.TryParse(Console.ReadLine(), out rut));
             if (ListaPersonas.BuscarRut(rut) == null)
             {
@@ -69,15 +69,38 @@ namespace Consola1
                 Persona p = ListaPersonas.BuscarRut(rut);
                 ListaPersonas.EliminarPersona(p);
                 Console.WriteLine("persona se Elimino correctamente");
+                Console.WriteLine("presione cualquier tecla para volver al menu principal.");
+                Console.ReadKey();
+                Funciones = true;
             }
+        }
+
+        public static void BuscarRut()
+        {
+
+        }
+
+        public static void Listar()
+        {
+            Console.Clear();
+            ListaPersonas.Listar();
+            Console.WriteLine("presione cualquier tecla para volver al menu principal.");
+            Console.ReadKey();
+            Funciones = true;
+        }
+
+        public static void Modificar()
+        {
+
         }
 
         static void Main(string[] args)
         {
             int opcion;
 
-            do
+            do 
             {
+                Console.Clear();
                 Console.WriteLine("         ----------------------------");
                 Console.WriteLine("         |        Ingrese opcion    |");
                 Console.WriteLine("         |    1.- Agregar persona   |");
@@ -110,7 +133,7 @@ namespace Consola1
                         Environment.Exit(1);
                         break;
                 }
-            } while (Funciones == true);
+            } while (Funciones);
         }
     }
 }
